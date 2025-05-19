@@ -29,7 +29,7 @@ This project demonstrates a frontend architecture for a multi-tenant banking pla
 multi-tenant-banking/
 ├── public/
 │ ├── assets/
-│ │ └── logos/ # Tenant logos (e.g., tenant-a-logo.png)
+│ │ └── logos/ # Tenant logos
 │ └── mockServiceWorker.js # MSW service worker
 ├── src/
 │ ├── app/
@@ -191,4 +191,5 @@ You can log in with the following mock credentials:
 - Selecting a new tenant/label triggers a navigation to the new URL (e.g., `/app/newTenant/newLabel/dashboard`).
 - This re-triggers the validation and context update logic in `ProtectedAppLayout`.
 
-##
+
+## ##

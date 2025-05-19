@@ -1,6 +1,5 @@
 import { http, HttpResponse } from 'msw'
 import { mockUsers, mockTenantData } from '../config/mockData'
-import { User } from '../types'
 
 export const handlers = [
   // Mock login

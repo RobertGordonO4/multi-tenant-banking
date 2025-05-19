@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { useAuthStore } from '../store/authStore'
 import { useTenantStore } from '../store/tenantStore'
-import { Tenant } from '../types' // Make sure Tenant type is imported
+import { Tenant } from '../types'
 import { Select } from '../components/common/Select'
 
 const SelectionContainer = styled.div`

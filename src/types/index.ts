@@ -1,4 +1,4 @@
-// Theme definition
+
 export interface ThemeColors {
   primary: string
   secondary: string
@@ -6,7 +6,6 @@ export interface ThemeColors {
   text: string
   headerBackground: string
   headerText: string
-  // Add more color definitions as needed
   error?: string
   success?: string
   warning?: string
@@ -15,7 +14,6 @@ export interface ThemeColors {
 export interface ThemeTypography {
   fontFamily: string
   fontSize: string
-  // Add more typography definitions
 }
 
 export interface Theme {
@@ -30,14 +28,12 @@ export interface Theme {
   borderRadius?: string
 }
 
-// Label definition
 export interface Label {
   id: string
   name: string
   config?: Record<string, any> // For label-specific configurations like feature flags
 }
 
-// Tenant definition
 export interface Tenant {
   id: string
   name: string
@@ -45,7 +41,6 @@ export interface Tenant {
   labels: Label[]
 }
 
-// User definition
 export interface User {
   id: string
   username: string

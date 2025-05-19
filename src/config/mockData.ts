@@ -16,7 +16,6 @@ export const mockTenantData: Tenant[] = [
     id: 'tenant-a',
     name: 'Alpha Bank',
     theme: {
-      // Partial<Theme>
       colors: {
         primary: '#0056b3',
         headerBackground: '#004085',
