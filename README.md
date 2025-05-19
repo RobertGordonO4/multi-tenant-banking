@@ -26,61 +26,61 @@ This project demonstrates a frontend architecture for a multi-tenant banking pla
 
 ## Project Structure
 
-multi-tenant-banking/
-├── public/
-│ ├── assets/
-│ │ └── logos/ # Tenant logos
-│ └── mockServiceWorker.js # MSW service worker
-├── src/
-│ ├── app/
-│ │ ├── App.tsx # Main application component, router setup
-│ │ ├── GlobalStyles.ts # Global CSS styles
-│ │ └── ThemeProviderWrapper.tsx # Applies tenant-specific theme
-│ ├── components/
-│ │ ├── common/ # Reusable UI components (Button, Select, etc.)
-│ │ ├── layout/ # Layout components (Header, ProtectedAppLayout)
-│ │ └── auth/ # Auth-related components (LoginForm)
-│ ├── config/
-│ │ ├── mockData.ts # Mock tenant, label, and user data
-│ │ └── theme.ts # Default theme and theme type definitions
-│ ├── screens/
-│ │ ├── auth/
-│ │ │ └── LoginPage.tsx
-│ │ ├── dashboard/
-│ │ │ └── DashboardPage.tsx
-│ │ ├── errors/
-│ │ │ └── NotFoundPage.tsx
-│ │ ├── selection/
-│ │ │ └── TenantLabelSelectionPage.tsx
-│ │ └── settings/
-│ │   └── SettingsPage.tsx
-│ ├── hooks/
-│ │ └── useCombinedStore.ts # Example of combining store access
-│ ├── mocks/
-│ │ ├── browser.ts # MSW browser worker setup
-│ │ └── handlers.ts # MSW request handlers
-│ ├── pages/
-│ │ ├── LoginPage.tsx
-│ │ ├── NotFoundPage.tsx
-│ │ └── TenantLabelSelectionPage.tsx
-│ ├── services/ # Mocked service functions (e.g., authService)
-│ │ └── authService.ts
-│ ├── store/
-│ │ ├── authStore.ts # Zustand store for authentication
-│ │ └── tenantStore.ts # Zustand store for tenant/label context and data
-│ ├── types/
-│ │ ├── index.ts # Common type definitions and re-exports
-│ │ ├── styled.d.ts # Styled Components theme augmentation
-│ │ └── vite-env.d.ts # Vite environment types
-│ ├── main.tsx # Application entry point
-├── .eslintrc.cjs
-├── .gitignore
-├── index.html
-├── package.json
-├── pnpm-lock.yaml
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
+multi-tenant-banking/  
+├── public/  
+│ ├── assets/  
+│ │ └── logos/ # Tenant logos  
+│ └── mockServiceWorker.js # MSW service worker  
+├── src/  
+│ ├── app/  
+│ │ ├── App.tsx # Main application component, router setup  
+│ │ ├── GlobalStyles.ts # Global CSS styles  
+│ │ └── ThemeProviderWrapper.tsx # Applies tenant-specific theme  
+│ ├── components/  
+│ │ ├── common/ # Reusable UI components (Button, Select, etc.)  
+│ │ ├── layout/ # Layout components (Header, ProtectedAppLayout)  
+│ │ └── auth/ # Auth-related components (LoginForm)  
+│ ├── config/  
+│ │ ├── mockData.ts # Mock tenant, label, and user data  
+│ │ └── theme.ts # Default theme and theme type definitions  
+│ ├── screens/  
+│ │ ├── auth/  
+│ │ │ └── LoginPage.tsx  
+│ │ ├── dashboard/  
+│ │ │ └── DashboardPage.tsx  
+│ │ ├── errors/  
+│ │ │ └── NotFoundPage.tsx  
+│ │ ├── selection/  
+│ │ │ └── TenantLabelSelectionPage.tsx  
+│ │ └── settings/  
+│ │   └── SettingsPage.tsx  
+│ ├── hooks/  
+│ │ └── useCombinedStore.ts # Example of combining store access  
+│ ├── mocks/  
+│ │ ├── browser.ts # MSW browser worker setup  
+│ │ └── handlers.ts # MSW request handlers  
+│ ├── pages/  
+│ │ ├── LoginPage.tsx  
+│ │ ├── NotFoundPage.tsx  
+│ │ └── TenantLabelSelectionPage.tsx  
+│ ├── services/ # Mocked service functions (e.g., authService)  
+│ │ └── authService.ts  
+│ ├── store/  
+│ │ ├── authStore.ts # Zustand store for authentication  
+│ │ └── tenantStore.ts # Zustand store for tenant/label context and data  
+│ ├── types/  
+│ │ ├── index.ts # Common type definitions and re-exports  
+│ │ ├── styled.d.ts # Styled Components theme augmentation  
+│ │ └── vite-env.d.ts # Vite environment types  
+│ ├── main.tsx # Application entry point  
+├── .eslintrc.cjs  
+├── .gitignore  
+├── index.html  
+├── package.json  
+├── pnpm-lock.yaml  
+├── tsconfig.json  
+├── tsconfig.node.json  
+└── vite.config.ts  
 
 ## Getting Started
 
