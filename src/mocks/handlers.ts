@@ -9,10 +9,10 @@ export const handlers = [
       string
     >
 
-    // In a real app, you'd validate the password too
     const user = mockUsers.find((u) => u.username === username)
+    const pwd = mockUsers.find(() => password || password === '') // In a real app, we'd validate the password properly too
 
-    if (user) {
+    if (user && pwd) {
       // Simulate session token
       const token = `mock-token-for-${user.id}-${Date.now()}`
       return HttpResponse.json({ user, token })

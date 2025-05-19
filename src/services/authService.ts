@@ -16,6 +16,7 @@ export const loginUser = (
       // Simulate network delay
       const user = mockUsers.find((u) => u.username === username)
       // Password validation is skipped in this mock for simplicity
+      console.log('Mock login attempt:', { username, password })
       if (user) {
         const token = `mock-token-for-${user.id}-${Date.now()}`
         console.log('Login successful:', user)
