@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import LoginPage from '../pages/LoginPage'
-import DashboardPage from '../features/dashboard/DashboardPage'
-import SettingsPage from '../features/settings/SettingsPage'
-import NotFoundPage from '../pages/NotFoundPage'
+import LoginPage from '../screens/auth/LoginPage'
+import DashboardPage from '../screens/dashboard/DashboardPage'
+import SettingsPage from '../screens/settings/SettingsPage'
+import NotFoundPage from '../screens/errors/NotFoundPage'
 import ProtectedAppLayout from '../components/layout/ProtectedAppLayout'
 import { ThemeProviderWrapper } from './ThemeProviderWrapper'
 import GlobalStyles from './GlobalStyles'
-import TenantLabelSelectionPage from '../pages/TenantLabelSelectionPage'
+import TenantLabelSelectionPage from '../screens/selection/TenantLabelSelectionPage'
 import { useAuthStore } from '../store/authStore'
 
 function App() {

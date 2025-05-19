@@ -1,7 +1,7 @@
 import React from 'react'
-import LoginForm from '../components/auth/LoginForm'
+import LoginForm from '../../components/auth/LoginForm'
 import styled from 'styled-components'
-import { useAuthStore } from '../store/authStore'
+import { useAuthStore } from '../../store/authStore'
 import { Navigate } from 'react-router-dom'
 
 const LoginPageContainer = styled.div`

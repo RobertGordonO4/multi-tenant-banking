@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
-import { useAuthStore } from '../store/authStore'
-import { useTenantStore } from '../store/tenantStore'
-import { Tenant } from '../types'
-import { Select } from '../components/common/Select'
+import { useAuthStore } from '../../store/authStore'
+import { useTenantStore } from '../../store/tenantStore'
+import { Tenant } from '../../types'
+import { Select } from '../../components/common/Select'
 
 const SelectionContainer = styled.div`
   display: flex;

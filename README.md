@@ -43,11 +43,17 @@ multi-tenant-banking/
 │ ├── config/
 │ │ ├── mockData.ts # Mock tenant, label, and user data
 │ │ └── theme.ts # Default theme and theme type definitions
-│ ├── features/
+│ ├── screens/
+│ │ ├── auth/
+│ │ │ └── LoginPage.tsx
 │ │ ├── dashboard/
 │ │ │ └── DashboardPage.tsx
+│ │ ├── errors/
+│ │ │ └── NotFoundPage.tsx
+│ │ ├── selection/
+│ │ │ └── TenantLabelSelectionPage.tsx
 │ │ └── settings/
-│ │ └── SettingsPage.tsx
+│ │   └── SettingsPage.tsx
 │ ├── hooks/
 │ │ └── useCombinedStore.ts # Example of combining store access
 │ ├── mocks/
@@ -165,7 +171,7 @@ You can log in with the following mock credentials:
 
 - **TypeScript:** Enforces type safety, improves code readability, and provides better autocompletion.
 - **Vite:** Offers extremely fast HMR (Hot Module Replacement) and build times.
-- **Modular Structure:** Code is organized into directories by concern (components, features, pages, store, types, etc.), promoting maintainability.
+- **Modular Structure:** Code is organized into directories by concern (components, screens, store, types, etc.), promoting maintainability.
 - **Clear Naming Conventions:** Efforts were made to use clear and consistent naming for files, variables, and functions.
 
 ## How Tenant/Label Context Works
