@@ -4,6 +4,8 @@ import { useTenantStore } from '../../store/tenantStore'
 
 const DashboardContainer = styled.div`
   padding: 20px;
+  display: grid;
+  gap: ${(props) => props.theme.dashboard.gap};
   h2 {
     color: ${(props) => props.theme.colors.primary};
     margin-bottom: 10px;
@@ -16,11 +18,28 @@ const DashboardContainer = styled.div`
 const ConfigDisplay = styled.pre`
   background-color: #eee;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: ${(props) =>
+    props.theme.borderRadius}; // Use theme border radius
   font-size: 0.9em;
   margin-top: 15px;
   color: #333;
-  text-wrap: auto;
+  white-space: pre-wrap; /* Allow text to wrap */
+  word-break: break-all; /* Break long words/strings */
+`
+
+const VatInfo = styled.p`
+  margin-top: 20px;
+  font-style: italic;
+  color: ${(props) => props.theme.colors.secondary};
+`
+
+const LegalText = styled.p`
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #555;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  line-height: 1.6;
 `
 
 const DashboardPage: React.FC = () => {
@@ -29,6 +48,12 @@ const DashboardPage: React.FC = () => {
   if (!currentTenantDetails || !currentLabelDetails) {
     return <div>Loading context or context not set...</div>
   }
+
+  // Get VAT percentage from label config, or default to 20
+  const vatPercentage = currentLabelDetails.config?.VATPercentage ?? 20
+  const legalText =
+    currentLabelDetails.config?.specificLegalText ??
+    'This is the default legal text.'
 
   return (
     <DashboardContainer>
@@ -46,7 +71,7 @@ const DashboardPage: React.FC = () => {
       {currentLabelDetails.config &&
         Object.keys(currentLabelDetails.config).length > 0 && (
           <div>
-            <h3>Label Specific Configuration:</h3>
+            <h3>Label Specific Configuration (Raw):</h3>
             <ConfigDisplay>
               {JSON.stringify(currentLabelDetails.config, null, 2)}
             </ConfigDisplay>
@@ -57,6 +82,10 @@ const DashboardPage: React.FC = () => {
         This is a sample dashboard view. Content here would be specific to the
         tenant and label context.
       </p>
+
+      <VatInfo>Applicable VAT Rate for this context: {vatPercentage}%.</VatInfo>
+
+      <LegalText>{legalText}</LegalText>
     </DashboardContainer>
   )
 }

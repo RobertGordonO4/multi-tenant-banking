@@ -28,7 +28,7 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius};
   font-size: 1em;
 `
 

@@ -1,4 +1,3 @@
-
 export interface ThemeColors {
   primary: string
   secondary: string
@@ -25,7 +24,10 @@ export interface Theme {
     medium: string
     large: string
   }
-  borderRadius?: string
+  borderRadius: string
+  dashboard: {
+    gap: string
+  }
 }
 
 export interface Label {

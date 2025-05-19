@@ -16,11 +16,14 @@ export const defaultTheme: Theme = {
     fontFamily: 'Arial, sans-serif',
     fontSize: '16px',
   },
-  logoUrl: 'default-logo.png', // Path relative to public/assets/logos/
+  logoUrl: 'default-logo.png',
   spacing: {
     small: '8px',
     medium: '16px',
     large: '24px',
   },
   borderRadius: '4px',
+  dashboard: {
+    gap: '5px',
+  },
 }

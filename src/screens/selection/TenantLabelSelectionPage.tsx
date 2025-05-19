@@ -23,7 +23,7 @@ const SelectionContainer = styled.div`
     padding: 10px;
     margin: 10px 0;
     min-width: 250px;
-    border-radius: 5px;
+    border-radius: ${(props) => props.theme.borderRadius};
     border: 1px solid #ccc;
   }
 
@@ -33,7 +33,7 @@ const SelectionContainer = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: ${(props) => props.theme.borderRadius};
     cursor: pointer;
     &:disabled {
       background-color: #ccc;

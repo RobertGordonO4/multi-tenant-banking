@@ -4,6 +4,7 @@ import { useNavigate, useParams, NavLink, useLocation } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
 import { useTenantStore } from '../../store/tenantStore'
 import { Tenant } from '../../types'
+import { defaultTheme } from '../../config/theme'
 
 const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.colors.headerBackground};
@@ -44,7 +45,7 @@ const StyledNavLink = styled(NavLink)`
   color: ${(props) => props.theme.colors.headerText};
   text-decoration: none;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius};
   transition: background-color 0.2s ease;
   white-space: nowrap;
 
@@ -85,7 +86,7 @@ const Controls = styled.div`
 
   select {
     padding: 5px;
-    border-radius: 4px;
+    border-radius: ${(props) => props.theme.borderRadius};
     border: 1px solid #ccc;
     background-color: white;
     color: #333;
@@ -96,7 +97,7 @@ const Controls = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: ${(props) => props.theme.borderRadius};
     cursor: pointer;
     white-space: nowrap;
     &:hover {
@@ -116,6 +117,7 @@ const Header: React.FC = () => {
     currentTenantDetails,
     currentLabelDetails,
     clearTenantContext,
+    currentTheme,
   } = useTenantStore()
 
   const handleLogout = () => {
@@ -123,6 +125,8 @@ const Header: React.FC = () => {
     clearTenantContext()
     navigate('/login')
   }
+
+  const showSettingsLink = !currentLabelDetails?.config?.hideSettings
 
   const accessibleTenants = React.useMemo(() => {
     if (!user || !allTenantsData) return []
@@ -158,19 +162,31 @@ const Header: React.FC = () => {
     }
   }
 
-  const logoSrc = currentTenantDetails?.theme?.logoUrl
-    ? `/assets/logos/${currentTenantDetails.theme.logoUrl}`
-    : '/assets/logos/default-logo.png'
+  // Determine the logo source
+  let logoFilenameToUse = defaultTheme.logoUrl
+
+  if (currentTheme && currentLabelDetails) {
+    if (currentLabelDetails.config?.defaultLogo === true) {
+      // Label EXPLICITLY wants the platform default logo
+      logoFilenameToUse = defaultTheme.logoUrl
+    } else if (currentTheme.logoUrl) {
+      // Label does not force default, and tenant has a logo (or platform default if tenant didn't specify)
+      logoFilenameToUse = currentTheme.logoUrl
+    }
+  }
+  const logoSrc = `/assets/logos/${logoFilenameToUse}`
+  const altText =
+    currentLabelDetails?.config?.defaultLogo === true ||
+    !currentTenantDetails?.name
+      ? 'Platform Logo'
+      : currentTenantDetails.name
 
   const baseAppPath = `/app/${currentUrlTenantId}/${currentUrlLabelId}`
 
   return (
     <StyledHeader>
       <Branding>
-        <img
-          src={logoSrc}
-          alt={currentTenantDetails?.name || 'Platform Logo'}
-        />
+        <img src={logoSrc} alt={altText} />
         <h1>{currentTenantDetails?.name || 'Banking Platform'}</h1>
       </Branding>
 
@@ -179,7 +195,11 @@ const Header: React.FC = () => {
           <StyledNavLink to={`${baseAppPath}/dashboard`}>
             Dashboard
           </StyledNavLink>
-          <StyledNavLink to={`${baseAppPath}/settings`}>Settings</StyledNavLink>
+          {showSettingsLink && (
+            <StyledNavLink to={`${baseAppPath}/settings`}>
+              Settings
+            </StyledNavLink>
+          )}
         </AppNavigation>
       ) : (
         <div

@@ -53,7 +53,7 @@ multi-tenant-banking/
 │ │ ├── selection/  
 │ │ │ └── TenantLabelSelectionPage.tsx  
 │ │ └── settings/  
-│ │   └── SettingsPage.tsx  
+│ │ └── SettingsPage.tsx  
 │ ├── hooks/  
 │ │ └── useCombinedStore.ts # Example of combining store access  
 │ ├── mocks/  
@@ -80,7 +80,7 @@ multi-tenant-banking/
 ├── pnpm-lock.yaml  
 ├── tsconfig.json  
 ├── tsconfig.node.json  
-└── vite.config.ts  
+└── vite.config.ts
 
 ## Getting Started
 
@@ -197,5 +197,4 @@ You can log in with the following mock credentials:
 - Selecting a new tenant/label triggers a navigation to the new URL (e.g., `/app/newTenant/newLabel/dashboard`).
 - This re-triggers the validation and context update logic in `ProtectedAppLayout`.
 
-
-## ##
+##

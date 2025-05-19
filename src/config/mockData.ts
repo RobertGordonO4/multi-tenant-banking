@@ -27,11 +27,15 @@ export const mockTenantData: Tenant[] = [
       logoUrl: 'alpha-bank-logo.png',
     },
     labels: [
-      { id: 'label-x', name: 'Retail Division X', config: { featureA: true } },
+      {
+        id: 'label-x',
+        name: 'Retail Division X',
+        config: { featureA: true, dashboardGap: 20 },
+      },
       {
         id: 'label-y',
         name: 'Corporate Banking Y',
-        config: { featureB: true },
+        config: { featureB: true, defaultLogo: true },
       },
     ],
   },
@@ -54,8 +58,8 @@ export const mockTenantData: Tenant[] = [
         id: 'label-z',
         name: 'Wealth Management Z',
         config: {
-          blahblahblah: 'yes please',
-          dropdownsInsteadOfRadioButtons: true,
+          hideSettings: true,
+          VATPercentage: 23,
         },
       },
       {
